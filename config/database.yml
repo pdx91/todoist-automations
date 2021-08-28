@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  timeout: 5000
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
+
+development:
+  <<: *default
+  database: todoist_automations_development
+
+test:
+  <<: *default
+  database: todoist_automations_test
+
+production:
+  <<: *default
+  database: todoist_automations_production
+  username: balance
+  password: <%= ENV['TODOIST_AUTOMATIONS_DATABASE_PASSWORD'] %>
