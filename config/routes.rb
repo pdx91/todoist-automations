@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
 
     authenticated :user do
-      # root to: "landings#show", as: :authenticated_route
+      root to: "automations#index", as: :authenticated_root
     end
 
     # delete "sign_out", to: "devise/sessions#destroy", as: :destroy_user_session

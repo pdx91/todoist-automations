@@ -66,3 +66,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 Dir.glob(File.expand_path("../engines/*", __FILE__)).each do |path|
   gem File.basename(path), path: path
 end
+gem "tailwindcss-rails", "~> 0.4.3"
