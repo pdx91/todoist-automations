@@ -1,3 +1,12 @@
-<ul>
-  <%= render @automations %>
-</ul>
+<table class="table-auto w-full">
+  <thead>
+  <tr>
+    <th class="text-left">Automation</th>
+    <th class="text-left">Enabled</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <%= render @automations %>
+  </tbody>
+</table>

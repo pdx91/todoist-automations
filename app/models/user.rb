@@ -3,6 +3,9 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: %i[todoist]
 
+  has_many :enabled_automations, class_name: "Automation::Enabled"
+  has_many :projects, through: :enabled_automations, dependent: :destroy, source: :linked_projects
+
   def self.from_omniauth(auth)
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.email = auth.info.email
@@ -11,5 +14,9 @@ class User < ApplicationRecord
     end
 
     user.tap { user.save unless user.persisted? }
+  end
+
+  def automation_enabled?(name)
+    enabled_automations.map(&:name).uniq.include? name
   end
 end

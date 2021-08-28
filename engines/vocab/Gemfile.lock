@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     vocab (0.1.0)
+      pg
       rails (~> 6.1.4, >= 6.1.4.1)
 
 GEM
@@ -86,6 +87,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.3-arm64-darwin)
       racc (~> 1.4)
+    pg (1.2.3)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)

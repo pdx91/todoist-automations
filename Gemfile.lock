@@ -2,6 +2,7 @@ PATH
   remote: engines/vocab
   specs:
     vocab (0.1.0)
+      pg
       rails (~> 6.1.4, >= 6.1.4.1)
 
 GEM

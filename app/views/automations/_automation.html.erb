@@ -1,3 +1,15 @@
-<li>
-  <%= link_to automation.name, automation.path %>
-</li>
+<tr>
+  <td class="text-left">
+    <%= link_to automation.name, automation.path %>
+  </td>
+  <td class="text-left">
+    <% if current_user.automation_enabled? automation.key %>
+      Enabled
+    <% else %>
+      <%= form_with model: current_user.enabled_automations.new, url: automation_enable_path, method: :post do |form| %>
+        <%= form.hidden_field :name, value: automation.key %>
+        <%= form.submit "Enable", class: "inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <% end  %>
+    <% end %>
+  </td>
+</tr>
