@@ -61,3 +61,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Automation Engines
+Dir.glob(File.expand_path("../engines/*", __FILE__)).each do |path|
+  gem File.basename(path), path: path
+end
