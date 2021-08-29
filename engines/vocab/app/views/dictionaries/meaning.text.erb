@@ -1,0 +1,11 @@
+<%- @responses.each do |response| -%>
+<%- response.meanings.each do |meaning| -%>
+*<%= meaning.part_of_speech %>*
+<%- meaning.definitions.each do |definition| -%>
+* **<%= definition.word_definition %>**
+  <%- if definition.example -%>
+  *Example: <%= definition.example %>*
+  <%- end -%>
+<% end %>
+<% end %>
+<% end %>

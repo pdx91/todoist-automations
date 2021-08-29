@@ -2,7 +2,7 @@
   <td class="text-left">
     <%= link_to automation.name, automation.path %>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <% if current_user.automation_enabled? automation.key %>
       Enabled
     <% else %>

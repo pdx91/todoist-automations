@@ -5,11 +5,19 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "vocab/application", media: "all" %>
+  <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 </head>
-<body>
+  <body>
+    <nav>
+      <h1 class="text-2xl my-2 font-black flex justify-center">
+        <p class="text-indigo-600"><%= link_to "Todoist Automations", main_app.root_path %></p>&nbsp;
+        <p>/ Vocab</p>
+      </h1>
+    </nav>
 
-<%= yield %>
-
-</body>
+    <main class="mx-auto max-w-lg">
+      <%= yield %>
+    </main>
+  </body>
 </html>

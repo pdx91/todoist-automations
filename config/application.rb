@@ -18,7 +18,9 @@ module TodoistAutomations
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
+    config.active_job.queue_adapter = :sidekiq
     config.hosts << "0b03-100-36-231-200.ngrok.io"
+    config.eager_load_paths.push("#{config.root}/lib")
+    config.autoload_paths = config.eager_load_paths.dup
   end
 end

@@ -1,7 +1,8 @@
 class CreateProjects < ActiveRecord::Migration[6.1]
   def change
     create_table :projects do |t|
-      t.string :name, null: false
+      t.string :name
+      t.bigint :remote_id, null: false
       t.belongs_to :enabled_automation, foreign_key: true, index: true
 
       t.timestamps

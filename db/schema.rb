@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_184456) do
+ActiveRecord::Schema.define(version: 2021_08_28_230803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,21 @@ ActiveRecord::Schema.define(version: 2021_08_28_184456) do
     t.index ["user_id"], name: "index_enabled_automations_on_user_id"
   end
 
+  create_table "incoming_webhooks", force: :cascade do |t|
+    t.text "raw", null: false
+    t.string "source", null: false
+    t.boolean "processed", default: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["processed"], name: "index_incoming_webhooks_on_processed"
+    t.index ["source"], name: "index_incoming_webhooks_on_source"
+    t.index ["user_id"], name: "index_incoming_webhooks_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
+    t.bigint "remote_id", null: false
     t.bigint "enabled_automation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,5 +60,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_184456) do
   end
 
   add_foreign_key "enabled_automations", "users"
+  add_foreign_key "incoming_webhooks", "users"
   add_foreign_key "projects", "enabled_automations"
 end

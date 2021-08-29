@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   end
 
   post "automation/enable", to: "enabled_automations#create"
+  resources :enabled_automations, only: [] do
+    resources :projects, only: [:create]
+  end
+
+  post "incoming_webhooks/todoist", to: "incoming_webhooks/todoists#create"
 
   mount Vocab::Engine, at: "/vocab-builder"
 end

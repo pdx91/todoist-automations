@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :enabled_automations, class_name: "Automation::Enabled"
   has_many :projects, through: :enabled_automations, dependent: :destroy, source: :linked_projects
+  has_many :incoming_webhooks, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
