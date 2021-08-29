@@ -1,14 +1,14 @@
 require_relative "lib/vocab/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "vocab"
-  spec.version     = Vocab::VERSION
-  spec.authors     = ["Pradyumna Shembekar"]
-  spec.email       = ["pradyumna@hey.com"]
-  spec.homepage    = "https://github.com/pradyumna2905/todoist-automations"
-  spec.summary     = "Summary of Vocab."
+  spec.name = "vocab"
+  spec.version = Vocab::VERSION
+  spec.authors = ["Pradyumna Shembekar"]
+  spec.email = ["pradyumna@hey.com"]
+  spec.homepage = "https://github.com/pradyumna2905/todoist-automations"
+  spec.summary = "Summary of Vocab."
   spec.description = "Description of Vocab."
-  spec.license     = "MIT"
+  spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

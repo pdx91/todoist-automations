@@ -25,7 +25,7 @@ class TodoistApi
 
   def tasks(options = {})
     project_id = options[:project_id]
-    query = project_id.present? ? { project_id: project_id } : {}
+    query = project_id.present? ? {project_id: project_id} : {}
 
     HTTParty.get(
       "https://api.todoist.com/rest/v1/tasks",
@@ -67,6 +67,6 @@ class TodoistApi
   private
 
   def allowed_attributes_to_update
-    %i[ description ]
+    %i[description]
   end
 end

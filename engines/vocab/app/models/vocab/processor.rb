@@ -22,18 +22,16 @@ module Vocab
     end
 
     class MeaningFormatter
-      attr_accessor :output
-
       def initialize(responses)
         @responses = responses
       end
 
       def output
-        ::ApplicationController.render(
+        @output ||= ::ApplicationController.render(
           template: "dictionaries/meaning",
           layout: false,
           content_type: "text/plain",
-          assigns: { responses: @responses }
+          assigns: {responses: @responses}
         )
       end
     end

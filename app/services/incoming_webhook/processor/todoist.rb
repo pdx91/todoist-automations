@@ -1,5 +1,5 @@
 class IncomingWebhook::Processor::Todoist < IncomingWebhook::Processor
-  attr_reader :webhook, :user
+  attr_reader :webhook
 
   def process
     if processable?
